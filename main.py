@@ -39,7 +39,7 @@ part_versions = [
 ]
 
 # Create the Part with the PartVersions
-part = plcs_factory.create_part("ISO7380-M6x16-A2","Screw, Hexagon Socket Button Head",part_versions)
+part = plcs_factory.create_part("ISO7380-M6x16-A2","Screw, Hexagon Socket Button Head",part_versions,"Bolts Inc")
 
 # Create a PLCS Data Container
 data_container = PlcsDataContainer()

@@ -62,18 +62,23 @@ class PLCSFactory:
         descriptor.localized_string = localized_string_descriptions
         return descriptor
     
-    def __create_identifiers(self,id: str) -> List[Identifier]:
+    def __create_identifiers(self,id: str, role_ref: str = None) -> List[Identifier]:
         """
         Creates a list of Identifiers with a single Id entry
  
         Parameters:
             id (str): The single id
+            role_ref (str): Reference to role of this identifier
  
         Returns:
             List[Identifier]: A list of Identifiers with a single id entry
         """
         identifier = Identifier()
         identifier.id = id
+        # As per https://tinyurl.com/4k5huduc indicates that a reference to an organisation owner for
+        # an Identifier is via a Role reference as a unique string identifier for that organisation
+        if role_ref:
+            identifier.id_role_ref = role_ref
         identifiers = [identifier]
         return identifiers
 
@@ -141,20 +146,21 @@ class PLCSFactory:
         part_version.view_definitions = part_view_definitions
         return part_version
 
-    def create_part(self,id: str, description: str, part_versions: List[PartVersion]) -> Part:
+    def create_part(self,id: str, description: str, part_versions: List[PartVersion],manufacturer: str = None) -> Part:
         """
-        Creates a Part with a single id, description and list of PartVersions
+        Creates a Part with a single id, description, list of PartVersions and optional manufacturer
  
         Parameters:
             id (str): The id of the Part
             description (str): The description of the Part            
             part_versions (List[PartVersion]): The list of PartVersions
+            manufacturer (str): The name of the part manufacturer
  
         Returns:
             Part: A Part containing an id, description and list of PartVersions
         """
         part = Part()
-        part.id = self.__create_identifiers(id)
+        part.id = self.__create_identifiers(id, manufacturer)
         part.description = self.__create_descriptor(description)
         part.versions = part_versions
         return part
