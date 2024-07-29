@@ -2,7 +2,7 @@ from typing import Dict, Tuple
 from xsdata.formats.dataclass.context import XmlContext
 from xsdata.formats.dataclass.serializers import JsonSerializer
 from xsdata.formats.dataclass.serializers.config import SerializerConfig
-from plcs import *
+from org.oasis_open.plcs import *
 from plcs_factory import PLCSFactory
 
 def filter_nulls_empty_arrays(x: Tuple) -> Dict:

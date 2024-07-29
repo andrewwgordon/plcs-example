@@ -1,5 +1,5 @@
 from typing import List
-from plcs import *
+from org.oasis_open.plcs import *
 
 class PLCSFactory:
     """

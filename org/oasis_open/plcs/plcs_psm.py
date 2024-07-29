@@ -3,12 +3,12 @@ from typing import List, Optional
 
 from xsdata.models.datatype import XmlDateTime
 
-from plcs.common import (
+from org.oasis_open.plcs.common import (
     BaseObject,
     BaseRootObject,
     Reference,
 )
-from plcs.common import (
+from org.oasis_open.plcs.common import (
     DataContainer as CommonDataContainer,
 )
 

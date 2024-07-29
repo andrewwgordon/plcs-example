@@ -1,4 +1,4 @@
-from plcs.common import (
+from org.oasis_open.plcs.common import (
     BaseObject,
     BaseRootObject,
     Header,
@@ -6,10 +6,10 @@ from plcs.common import (
     Reference,
     Uos,
 )
-from plcs.common import (
+from org.oasis_open.plcs.common import (
     DataContainer as CommonDataContainer,
 )
-from plcs.plcs_psm import (
+from org.oasis_open.plcs.plcs_psm import (
     Activity,
     ActivityActual,
     ActivityAssignment,
@@ -494,7 +494,7 @@ from plcs.plcs_psm import (
     ZoneElementUsage,
     ZoneElementVersion,
 )
-from plcs.plcs_psm import (
+from org.oasis_open.plcs.plcs_psm import (
     DataContainer as PsmDataContainer,
 )
 
