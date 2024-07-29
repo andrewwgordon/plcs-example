@@ -146,7 +146,7 @@ class PLCSFactory:
         part_version.view_definitions = part_view_definitions
         return part_version
 
-    def create_part(self,id: str, description: str, part_versions: List[PartVersion],manufacturer: str = None) -> Part:
+    def create_part(self,id: str, description: str, part_versions: List[PartVersion],organisation_ref: str = None) -> Part:
         """
         Creates a Part with a single id, description, list of PartVersions and optional manufacturer
  
@@ -154,13 +154,13 @@ class PLCSFactory:
             id (str): The id of the Part
             description (str): The description of the Part            
             part_versions (List[PartVersion]): The list of PartVersions
-            manufacturer (str): The name of the part manufacturer
+            organisation_ref (str): The Role Reference to the owning Organisation
  
         Returns:
             Part: A Part containing an id, description and list of PartVersions
         """
         part = Part()
-        part.id = self.__create_identifiers(id, manufacturer)
+        part.id = self.__create_identifiers(id, organisation_ref)
         part.description = self.__create_descriptor(description)
         part.versions = part_versions
         return part
