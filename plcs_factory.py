@@ -1,3 +1,11 @@
+
+"""
+plcs_factory.py
+
+This module provides a factory class for creating PLCS (Product Life Cycle Support) data model objects.
+It simplifies the instantiation of common PLCS entities and their relationships, ensuring correct structure and value assignment.
+"""
+
 from typing import List
 from org.oasis_open.plcs import *
 
@@ -14,6 +22,7 @@ class PLCSFactory:
     """
 
     def __create_string_values(self,the_string: str) -> List[PropertyValue]:
+        # Helper to wrap a string in the appropriate PLCS value objects
         """
         Creates a list of PropertyValues containing a single string entry
  
@@ -31,6 +40,7 @@ class PLCSFactory:
         return property_values
     
     def __create_numeric_values(self,the_number: float) -> List[PropertyValue]:
+        # Helper to wrap a numeric value in the appropriate PLCS value objects
         """
         Creates a list of PropertyValues containing a single numeric entry
  
@@ -46,6 +56,7 @@ class PLCSFactory:
         return property_values
     
     def __create_descriptor(self,the_description: str) -> Descriptor:
+        # Helper to create a Descriptor object from a string description
         """
         Creates a Descriptor with a single string value entry
  
@@ -63,6 +74,7 @@ class PLCSFactory:
         return descriptor
     
     def __create_identifiers(self,id: str, role_ref: str = None) -> List[Identifier]:
+        # Helper to create a list of Identifier objects, optionally with a role reference
         """
         Creates a list of Identifiers with a single Id entry
  
@@ -84,6 +96,9 @@ class PLCSFactory:
 
     def create_string_property_value_assignment(self,description: str, value: str) -> PropertyValueAssignment:
         """
+        Public factory method to create a PropertyValueAssignment for a string property.
+        """
+        """
         Creates a PropertyValueAssignment with a single string entry
  
         Parameters:
@@ -100,6 +115,9 @@ class PLCSFactory:
 
     def create_numeric_property_value_assignment(self,description: str, value: float) -> PropertyValueAssignment:
         """
+        Public factory method to create a PropertyValueAssignment for a numeric property.
+        """
+        """
         Creates a PropertyValueAssignment with a single numeric entry
  
         Parameters:
@@ -115,6 +133,7 @@ class PLCSFactory:
         return property_value_assignment
 
     def create_part_view_definition(self,description: str, property_value_assignments: List[PropertyValueAssignment]) -> PartViewDefinition:
+        # Create a PartViewDefinition with a description and property assignments
         """
         Creates a PartViewDefinition with a single description and list of PropertyValueAssignments
  
@@ -131,6 +150,7 @@ class PLCSFactory:
         return part_view_definition
     
     def create_part_version(self,id: str, part_view_definitions: List[PartViewDefinition]) -> PartVersion:
+        # Create a PartVersion with an identifier and associated view definitions
         """
         Creates a Partversion with a single description and list of PartViewDefinitions
  
@@ -147,6 +167,7 @@ class PLCSFactory:
         return part_version
 
     def create_part(self,id: str, description: str, part_versions: List[PartVersion],organisation_ref: str = None) -> Part:
+        # Create a Part object with id, description, versions, and optional organisation reference
         """
         Creates a Part with a single id, description, list of PartVersions and optional manufacturer
  
